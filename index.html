@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primo Plumbing | Columbus, Ohio</title>
+  <meta name="description" content="Primo Plumbing provides water heater installation, drain cleaning, sewer service, backflow testing, remodeling plumbing, and general plumbing services throughout Columbus, Newark, and Licking County." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; background:#050505; color:#fff; line-height:1.65; }
+    a { color:inherit; text-decoration:none; }
+    :root { --blue:#00bdf2; --muted:#d4d4d4; --border:rgba(255,255,255,.15); --cut:36px; }
+
+    header { position:sticky; top:0; z-index:100; background:rgba(0,0,0,.94); border-bottom:1px solid var(--border); backdrop-filter:blur(14px); }
+    .nav { max-width:1220px; margin:auto; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
+    .brand { display:flex; align-items:center; gap:14px; font-weight:900; letter-spacing:1.5px; cursor:pointer; }
+    .brand img { height:52px; width:auto; border-radius: 0 14px 0 14px; }
+    .nav-right { display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
+    .nav-links { display:flex; align-items:center; gap:22px; }
+    .nav-links button { background:none; border:none; color:#e8e8e8; font-weight:800; font-size:15px; cursor:pointer; }
+    .nav-links button:hover, .nav-links button.active { color:var(--blue); }
+    .social-icons { display:flex; align-items:center; gap:10px; }
+    .social-icons a { width:38px; height:38px; display:grid; place-items:center; background:rgba(255,255,255,.07); border:1px solid var(--border); border-radius:0 16px 0 16px; color:#fff; font-size:18px; }
+    .social-icons a:hover { background:var(--blue); color:#001018; }
+    .call-btn { background:var(--blue) !important; color:#001018 !important; padding:12px 18px !important; border-radius:0 18px 0 18px; font-weight:900; border:none; cursor:pointer; }
+
+    main.page { display:none; min-height:82vh; }
+    main.page.active { display:block; }
+    .container { max-width:1220px; margin:auto; }
+    section { padding:86px 24px; }
+    .hero { min-height:84vh; display:grid; place-items:center; padding:80px 24px; background:radial-gradient(circle at top right, rgba(0,189,242,.18), transparent 30%), linear-gradient(90deg, rgba(0,0,0,.96), rgba(0,0,0,.62)), url('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1800&q=80') center/cover; }
+    .hero-grid, .split { display:grid; grid-template-columns:1.1fr .9fr; gap:46px; align-items:center; }
+    .page-hero { padding:90px 24px 55px; background:linear-gradient(135deg,#050505,#071923); border-bottom:1px solid var(--border); }
+    .eyebrow { color:var(--blue); letter-spacing:3px; font-size:13px; font-weight:900; text-transform:uppercase; margin-bottom:12px; }
+    h1 { font-size:clamp(40px,6.5vw,82px); line-height:1; max-width:900px; margin-bottom:22px; letter-spacing:-2px; }
+    h2 { font-size:clamp(30px,4vw,50px); line-height:1.08; margin-bottom:16px; letter-spacing:-1px; }
+    h3 { font-size:22px; margin-bottom:10px; line-height:1.2; }
+    p { color:var(--muted); font-size:18px; max-width:760px; }
+    .hero p, .page-hero p { max-width:720px; font-size:19px; }
+    .section-intro { margin-bottom:38px; }
+
+    .buttons { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+    .btn { display:inline-block; padding:15px 24px; border-radius:0 22px 0 22px; font-weight:900; border:1px solid rgba(255,255,255,.2); cursor:pointer; font-size:15px; }
+    .btn-primary { background:var(--blue); color:#001018; }
+    .btn-secondary { background:rgba(255,255,255,.08); color:white; }
+
+    .photo-card, .image-box { min-height:470px; border:1px solid var(--border); border-radius:0 48px 0 48px; overflow:hidden; background:#111; box-shadow:0 28px 60px rgba(0,0,0,.45); }
+    .photo-card img { width:100%; height:100%; min-height:470px; object-fit:cover; display:block; filter:contrast(1.04) saturate(.95); }
+    .image-box { background:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.32)), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80') center/cover; }
+    .image-box.two { background-image:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.32)), url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80'); }
+
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .card { background:linear-gradient(180deg,#121212,#080808); border:1px solid var(--border); border-radius:0 var(--cut) 0 var(--cut); padding:30px; box-shadow:0 20px 45px rgba(0,0,0,.32); transition:.25s ease; }
+    .card:hover { transform:translateY(-4px); border-color:rgba(0,189,242,.45); }
+    .card p { font-size:16.5px; }
+    .icon { width:52px; height:52px; border-radius:0 18px 0 18px; display:grid; place-items:center; margin-bottom:18px; background:rgba(0,189,242,.14); color:var(--blue); font-size:26px; border:1px solid rgba(0,189,242,.28); }
+    .list { display:grid; gap:14px; margin-top:22px; }
+    .list div { padding:16px 18px; background:rgba(255,255,255,.06); border-radius:0 22px 0 22px; border:1px solid rgba(255,255,255,.1); font-weight:700; }
+    .photo-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:30px; }
+    .photo-strip img { width:100%; height:210px; object-fit:cover; border-radius:0 28px 0 28px; border:1px solid var(--border); }
+    .service-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .service-card { display:grid; grid-template-columns:130px 1fr; gap:24px; align-items:start; min-height:270px; }
+    .service-card img { width:130px; height:130px; object-fit:cover; border-radius:0 26px 0 26px; border:1px solid var(--border); }
+    .service-card ul { color:#d7d7d7; padding-left:20px; margin-top:10px; }
+    .service-card li { margin-bottom:8px; }
+
+    .process { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .step { background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.035)); border:1px solid var(--border); padding:26px; border-radius:0 30px 0 30px; position:relative; overflow:hidden; }
+    .step:before { content:""; position:absolute; top:0; right:0; width:70px; height:3px; background:var(--blue); }
+    .step span { color:var(--blue); font-weight:900; font-size:14px; letter-spacing:2px; }
+
+    .cta { background:linear-gradient(135deg,rgba(0,189,242,.16),rgba(255,255,255,.04)); border:1px solid var(--border); border-radius:0 38px 0 38px; padding:42px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
+    .map-box { min-height:320px; border-radius:0 38px 0 38px; border:1px solid var(--border); background:linear-gradient(135deg,rgba(0,189,242,.18),rgba(255,255,255,.04)); display:grid; place-items:center; text-align:center; padding:30px; }
+    .review { min-height:210px; }
+    .stars { color:var(--blue); font-size:20px; margin-bottom:12px; letter-spacing:2px; }
+    .contact-box { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:0 36px 0 36px; padding:30px; }
+    form { display:grid; gap:14px; }
+    input, textarea, select { width:100%; padding:16px 17px; border-radius:0 18px 0 18px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.07); color:#fff; font-size:16px; }
+    option { color:#000; }
+    textarea { min-height:135px; resize:vertical; }
+    footer { padding:28px 24px; text-align:center; color:#aaa; border-top:1px solid rgba(255,255,255,.1); }
+
+    @media (max-width:900px) { .nav { flex-direction:column; align-items:flex-start; } .nav-right,.nav-links { flex-wrap:wrap; gap:16px; } .cards,.split,.service-grid,.hero-grid,.process,.photo-strip { grid-template-columns:1fr; } .service-card { grid-template-columns:1fr; } .service-card img,.photo-strip img { width:100%; height:190px; } .brand img { height:44px; } .cta { flex-direction:column; align-items:flex-start; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand" onclick="showPage('home')"><img src="assets/primo-plumbing-logo.jpeg" alt="Primo Plumbing Logo" /><span>PRIMO PLUMBING</span></div>
+      <div class="nav-right">
+        <div class="nav-links"><button class="nav-btn active" onclick="showPage('home')">Home</button><button class="nav-btn" onclick="showPage('about')">About Us</button><button class="nav-btn" onclick="showPage('services')">Services</button><button class="nav-btn" onclick="showPage('areas')">Service Areas</button><button class="nav-btn" onclick="showPage('contact')">Contact</button><button class="call-btn" onclick="showPage('contact')">Call Now</button></div>
+        <div class="social-icons">
+          <a href="https://instagram.com/primoplumbingohio" target="_blank" title="@primoplumbingohio" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/></svg></a>
+          <a href="mailto:primoplumbingohio@yahoo.com" title="Email" aria-label="Email">✉</a>
+          <a href="tel:+10000000000" title="Phone" aria-label="Phone">☎</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="page active">
+    <div class="hero"><div class="container hero-grid"><div><div class="eyebrow">Columbus, Ohio Plumbing Services</div><h1>Clean plumbing work. Premium service.</h1><p>Primo Plumbing provides professional plumbing repairs, water heater solutions, drain service, sewer service, remodeling plumbing, and clean installations throughout Columbus, Ohio.</p><div class="buttons"><button class="btn btn-primary" onclick="showPage('contact')">Request Service</button><button class="btn btn-secondary" onclick="showPage('services')">View Services</button></div></div><div class="photo-card"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80" alt="Clean bathroom plumbing"></div></div></div>
+
+    <section><div class="container split"><div><div class="eyebrow">Hot Water Solutions</div><h2>Water heater service built to last.</h2><p>Primo Plumbing helps homeowners and businesses with water heater installation, replacement, troubleshooting, and maintenance. Whether your system is old, leaking, inconsistent, or not producing enough hot water, we can help you take the next step.</p><div class="list"><div>✔ Tank water heaters</div><div>✔ Tankless water heaters</div><div>✔ New installations</div><div>✔ Replacement service</div></div><div class="buttons"><button class="btn btn-primary" onclick="showPage('contact')">Ask About Hot Water</button></div></div><div class="photo-card"><img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=900&q=80" alt="Water heater plumbing section"></div></div></section>
+
+    <section><div class="container"><div class="eyebrow">Why Choose Primo</div><h2>Professional, simple, and reliable.</h2><p class="section-intro">We focus on easy communication, clean workmanship, and dependable plumbing solutions that make your home or business run smoothly.</p><div class="cards"><div class="card"><div class="icon">✓</div><h3>Clear Communication</h3><p>We explain the issue, the service, and the next step in simple terms before work begins.</p></div><div class="card"><div class="icon">◆</div><h3>Clean Workmanship</h3><p>Our goal is to leave every job looking neat, professional, and properly finished.</p></div><div class="card"><div class="icon">⌂</div><h3>Local Service</h3><p>Primo Plumbing is built to serve Columbus and the surrounding Central Ohio area.</p></div></div><div class="photo-strip"><img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=600&q=80" alt="Water heater"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Bathroom plumbing"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80" alt="Clean bathroom remodel"><img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=600&q=80" alt="Clean plumbing pipes"></div></div></section>
+
+    <section><div class="container"><div class="eyebrow">Our Process</div><h2>A cleaner way to handle plumbing.</h2><div class="process"><div class="step"><span>01</span><h3>Reach Out</h3><p>Call, email, or send a request with the plumbing issue you need solved.</p></div><div class="step"><span>02</span><h3>Inspect</h3><p>We review the problem and explain the best repair or installation options.</p></div><div class="step"><span>03</span><h3>Complete Work</h3><p>The job is handled with clean workmanship, care, and attention to detail.</p></div><div class="step"><span>04</span><h3>Final Check</h3><p>We review the completed work and make sure the area is left neat.</p></div></div></div></section>
+
+    <section><div class="container"><div class="eyebrow">Customer Experience</div><h2>Built to earn five-star reviews.</h2><div class="cards"><div class="card review"><div class="stars">★★★★★</div><h3>Clean Service</h3><p>“Professional look, clean work area, and easy communication from start to finish.”</p></div><div class="card review"><div class="stars">★★★★★</div><h3>Clear Answers</h3><p>“Everything was explained in a way that made the plumbing issue easy to understand.”</p></div><div class="card review"><div class="stars">★★★★★</div><h3>Reliable Help</h3><p>“Fast response, quality service, and a polished finish.”</p></div></div></div></section>
+  </main>
+
+  <main id="about" class="page">
+    <div class="page-hero"><div class="container"><div class="eyebrow">About Us</div><h1>About Primo Plumbing</h1><p>A Columbus plumbing company focused on trust, quality, and professional service.</p></div></div>
+    <section><div class="container split"><div><h2>Built for better plumbing service.</h2><p>Primo Plumbing was created to give homeowners and businesses a cleaner, more dependable plumbing experience. Our goal is simple: quality service, clear answers, and work done the right way.</p><div class="list"><div>✔ Honest recommendations</div><div>✔ Professional presentation</div><div>✔ Quality repairs and installations</div><div>✔ Customer-first service</div><div>✔ Respect for your home or business</div></div></div><div class="image-box"></div></div></section>
+    <section><div class="container split"><div class="image-box two"></div><div><div class="eyebrow">What We Stand For</div><h2>Reliable work with a polished finish.</h2><p>From simple repairs to water heater service, drain cleaning, sewer service, remodeling projects, and new construction plumbing, Primo Plumbing focuses on doing the job neatly and building trust with every customer.</p></div></div></section>
+  </main>
+
+  <main id="services" class="page">
+    <div class="page-hero"><div class="container"><div class="eyebrow">Services</div><h1>Professional Plumbing Services</h1><p>Clean, dependable plumbing solutions for homes, businesses, remodels, and new construction projects.</p></div></div>
+    <section><div class="container service-grid">
+      <div class="card service-card"><img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=500&q=80" alt="Water heater service"><div><h3>Water Heaters</h3><p>Water heater service for homes and businesses that need reliable hot water.</p><ul><li>Water heater installs</li><li>Water heater replacement</li><li>Tank and tankless systems</li><li>Hot water issue troubleshooting</li></ul></div></div>
+      <div class="card service-card"><img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=500&q=80" alt="Plumbing pipes"><div><h3>Plumbing Repairs</h3><p>Reliable repair service for common plumbing issues and problem areas.</p><ul><li>Leaks</li><li>Broken pipes</li><li>Valve repairs</li><li>Water pressure issues</li></ul></div></div>
+      <div class="card service-card"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80" alt="Bathroom plumbing"><div><h3>Fixture Installation</h3><p>Clean installation for fixtures and plumbing upgrades.</p><ul><li>Faucets</li><li>Toilets</li><li>Garbage disposals</li><li>Sinks and showers</li></ul></div></div>
+      <div class="card service-card"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=500&q=80" alt="Bathroom remodel plumbing"><div><h3>New Construction & Remodeling</h3><p>Plumbing support for new spaces, remodels, and upgraded layouts.</p><ul><li>Kitchen remodel plumbing</li><li>Bathroom remodel plumbing</li><li>New fixture rough-ins</li><li>New construction plumbing support</li></ul></div></div>
+      <div class="card service-card"><img src="https://images.unsplash.com/photo-1597002547440-5594a63523dd?auto=format&fit=crop&w=500&q=80" alt="Drain cleaning"><div><h3>Drain Cleaning & Unblocking</h3><p>Help with slow drains, blocked lines, and drainage problems.</p><ul><li>Clogged sinks</li><li>Slow drains</li><li>Drain unblocking</li><li>Kitchen and bathroom drain service</li></ul></div></div>
+      <div class="card service-card"><img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=500&q=80" alt="Sewer service"><div><h3>Sewer Service</h3><p>Service for sewer-related plumbing issues and line concerns.</p><ul><li>Sewer line support</li><li>Sewer issue troubleshooting</li><li>Backup concerns</li><li>Drain and sewer problem checks</li></ul></div></div>
+      <div class="card service-card"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=500&q=80" alt="Backflow testing"><div><h3>Backflow Testing</h3><p>Backflow testing service for properties that need plumbing safety and compliance support.</p><ul><li>Backflow testing</li><li>Backflow prevention checks</li><li>Property plumbing safety</li><li>Commercial support</li></ul></div></div>
+      <div class="card service-card"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=500&q=80" alt="Residential and commercial plumbing"><div><h3>Residential & Commercial</h3><p>Plumbing help for homes, offices, and small businesses.</p><ul><li>Residential plumbing</li><li>Light commercial plumbing</li><li>Bathroom plumbing</li><li>Kitchen plumbing</li></ul></div></div>
+    </div></section>
+    <section><div class="container split"><div><div class="eyebrow">Drain Cleaning</div><h2>Keep water flowing properly.</h2><p>Slow drains and recurring clogs can disrupt your home or business. Primo Plumbing provides drain cleaning and unblocking services to restore proper flow and help prevent future issues.</p><div class="list"><div>✔ Kitchen drains</div><div>✔ Bathroom drains</div><div>✔ Main drain lines</div><div>✔ Clog removal</div></div></div><div class="photo-card"><img src="https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=900&q=80" alt="Drain cleaning service"></div></div></section>
+    <section><div class="container"><div class="eyebrow">Common Jobs</div><h2>Plumbing problems we can help with.</h2><div class="cards"><div class="card"><h3>Leaks & Drips</h3><p>Small leaks can turn into bigger damage. We help identify and repair leak issues clearly and professionally.</p></div><div class="card"><h3>Hot Water Problems</h3><p>No hot water, inconsistent temperatures, or old equipment can often point to a water heater issue.</p></div><div class="card"><h3>Blocked Drains</h3><p>Slow or clogged drains can affect kitchens, bathrooms, laundry areas, and main plumbing lines.</p></div></div></div></section>
+    <section><div class="container cta"><div><h2>Payment & Project Options</h2><p>Ask about available payment options, scheduling, and project planning for repairs, installations, remodels, and larger plumbing jobs.</p></div><button class="btn btn-primary" onclick="showPage('contact')">Request Service</button></div></section>
+  </main>
+
+  <main id="areas" class="page">
+    <div class="page-hero"><div class="container"><div class="eyebrow">Service Areas</div><h1>Serving Columbus & Central Ohio</h1><p>Primo Plumbing is built to serve local homeowners, businesses, remodelers, and property owners throughout the Columbus area.</p></div></div>
+    <section><div class="container split"><div><h2>Areas We Serve</h2><p>Use this page to help customers quickly see if Primo Plumbing serves their area.</p><div class="list"><div>Columbus</div><div>Dublin</div><div>Hilliard</div><div>Grove City</div><div>Westerville</div><div>Reynoldsburg</div><div>New Albany</div><div>Gahanna</div><div>Pickerington</div><div>Newark</div><div>Licking County</div></div></div><div class="map-box"><div><div class="eyebrow">Map Section</div><h2>Columbus, Ohio Service Area</h2><p>Add a map embed here if you want one later.</p></div></div></div></section>
+  </main>
+
+  <main id="contact" class="page">
+    <div class="page-hero"><div class="container"><div class="eyebrow">Contact</div><h1>Contact Primo Plumbing</h1><p>Tell us what you need and we’ll help you take the next step.</p></div></div>
+    <section><div class="container split"><div><h2>Ready to get started?</h2><p class="section-intro">Reach out to Primo Plumbing for service in Columbus, Ohio. Replace the placeholder phone number with your real business information.</p><div class="list"><div><strong>Instagram:</strong> @primoplumbingohio</div><div><strong>Email:</strong> primoplumbingohio@yahoo.com</div><div><strong>Phone:</strong> (XXX) XXX-XXXX</div><div><strong>Location:</strong> Columbus, Ohio</div></div></div><div class="contact-box"><form action="mailto:primoplumbingohio@yahoo.com" method="post" enctype="text/plain"><input type="text" name="name" placeholder="Full Name" required /><input type="email" name="email" placeholder="Email Address" required /><input type="tel" name="phone" placeholder="Phone Number" /><select name="service"><option>What service do you need?</option><option>General Plumbing</option><option>Water Heater</option><option>Drain Cleaning</option><option>Sewer Service</option><option>Backflow Testing</option><option>New Construction / Remodeling</option><option>Other</option></select><textarea name="message" placeholder="Tell us about the job"></textarea><button class="btn btn-primary" type="submit">Submit Request</button></form></div></div></section>
+  </main>
+
+  <footer>© 2026 Primo Plumbing. Serving Columbus, Ohio. | Instagram: @primoplumbingohio</footer>
+
+  <script>
+    function showPage(pageId) { document.querySelectorAll('main.page').forEach(page => page.classList.remove('active')); document.getElementById(pageId).classList.add('active'); document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active')); document.querySelectorAll('.nav-btn').forEach(btn => { if (pageId === 'home' && btn.textContent === 'Home') btn.classList.add('active'); if (pageId === 'about' && btn.textContent === 'About Us') btn.classList.add('active'); if (pageId === 'services' && btn.textContent === 'Services') btn.classList.add('active'); if (pageId === 'areas' && btn.textContent === 'Service Areas') btn.classList.add('active'); if (pageId === 'contact' && btn.textContent === 'Contact') btn.classList.add('active'); }); window.scrollTo(0, 0); }
+  </script>
+</body>
+</html>
